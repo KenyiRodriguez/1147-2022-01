@@ -27,8 +27,15 @@ struct Persona {
 }
 
 
-var persona = Persona(nombre: "Kenyi", apellido: "Rodriguez")
-persona.nombre = "dffdfdf"
+var persona1 = Persona(nombre: "Kenyi", apellido: "Rodriguez")
+var persona2 = persona1
+
+persona1.nombre = "Juan"
+
+persona1.nombre
+persona2.nombre
+
+
 
 
 //persona.direccion = "Calle los olvidados del señor 666"
@@ -40,3 +47,37 @@ persona.nombre = "dffdfdf"
 //persona.nombre = "dfdfdf"
 
 
+
+
+struct Motor {
+    
+    let cilindrada: String
+    let potencia: String
+    
+    func encender() {
+        print("Motor encendido")
+    }
+    
+    func apagar() {
+        print("Motor apagado")
+    }
+}
+
+struct Automovil {
+    
+    let motor: Motor
+    
+    func andar() {
+        self.motor.encender()
+        self.motor.apagar()
+    }
+}
+
+let motor = Motor(cilindrada: "2.0T", potencia: "280HP")
+let auto = Automovil(motor: motor)
+
+auto.motor.cilindrada
+auto.motor.potencia
+auto.motor.apagar()
+auto.motor.encender()
+auto.andar()
